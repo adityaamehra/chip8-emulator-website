@@ -18,7 +18,7 @@ export const metadata = {
     description: "Play classic CHIP-8 games in your browser",
     images: [
       {
-        url: "https://metatags.io/images/meta-tags.png",
+        url: "https://adityaamehra.me/og.png",
       },
     ],
   },
@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "A CHIP-8 Emulator - Adityaa Mehra",
     description: "Play classic CHIP-8 games in your browser",
-    images: ["https://metatags.io/images/meta-tags.png"],
+    images: ["https://adityaamehra.me/og.png"],
   },
 
    icons: {

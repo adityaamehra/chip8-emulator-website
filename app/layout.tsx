@@ -7,9 +7,29 @@ import "./globals.css"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "CHIP-8 Emulator",
+export const metadata = {
+  title: "A CHIP-8 Emulator - Adityaa Mehra",
   description: "Play classic CHIP-8 games in your browser",
+
+  openGraph: {
+    type: "website",
+    url: "https://chip8.adityaamehra.me/",
+    title: "A CHIP-8 Emulator - Adityaa Mehra",
+    description: "Play classic CHIP-8 games in your browser",
+    images: [
+      {
+        url: "https://metatags.io/images/meta-tags.png",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "A CHIP-8 Emulator - Adityaa Mehra",
+    description: "Play classic CHIP-8 games in your browser",
+    images: ["https://metatags.io/images/meta-tags.png"],
+  },
+
   icons: {
     icon: [
       {
@@ -27,7 +47,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,

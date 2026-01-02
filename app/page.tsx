@@ -15,6 +15,38 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const romDataRef = useRef<ArrayBuffer | null>(null)
 
+const PRELOADED_ROMS = [
+  "15PUZZLE",
+  "BLINKY",
+  "BRIX",
+  "CONNECT4",
+  "GUESS",
+  "MAZE",
+  "MISSILE",
+  "PONG",
+  "PONG2",
+  "SYZYGY",
+  "TANK",
+  "TICTAC",
+  "VBRIX",
+  "VERS",
+  "WIPEOFF",
+]
+    const loadPreloadedROM = async (rom: string) => {
+  const res = await fetch(`/ROM/${rom}`)
+  const arrayBuffer = await res.arrayBuffer()
+
+  romDataRef.current = arrayBuffer
+
+  emulatorRef.current.reset()
+  emulatorRef.current.loadROM(arrayBuffer)
+
+  setRomLoaded(true)
+  setRomName(rom)
+  setIsRunning(false)
+}
+
+
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (!file) return
@@ -70,6 +102,31 @@ export default function Home() {
                 </div>
               </div>
             </Card>
+            {/* Preloaded ROMs */}
+            <Card className="bg-black border-2 border-green-500 p-4 padding-top-6 mt-4">
+              <h2 className="text-white font-bold mb-3 text-sm uppercase tracking-widest">
+                Preloaded ROMs
+              </h2>
+
+              <select
+                defaultValue=""
+                className="w-full bg-black border-2 border-green-500 text-green-400 p-2 font-mono text-sm"
+                onChange={(e) => {
+                  if (e.target.value) loadPreloadedROM(e.target.value)
+                }}
+              >
+                <option value="" disabled>
+                  Select ROM
+                </option>
+
+                {PRELOADED_ROMS.map((rom) => (
+                  <option key={rom} value={rom}>
+                    {rom}
+                  </option>
+                ))}
+              </select>
+            </Card>
+
           </div>
 
           {/* Controls Sidebar */}

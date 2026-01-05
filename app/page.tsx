@@ -87,10 +87,6 @@ const PRELOADED_ROMS = [
   return (
     <main className="min-h-screen bg-black p-4 flex flex-col">
       <div className="max-w-6xl mx-auto flex-1">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">CHIP-8 EMULATOR</h1>
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Emulator Display */}
@@ -110,7 +106,7 @@ const PRELOADED_ROMS = [
 
               <select
                 defaultValue=""
-                className="w-full bg-black border-2 border-green-500 text-green-400 p-2 font-mono text-sm"
+                className="w-full bg-black border-2 border-green-500 rounded-lg text-green-400 p-2 font-mono text-sm"
                 onChange={(e) => {
                   if (e.target.value) loadPreloadedROM(e.target.value)
                 }}
@@ -128,7 +124,6 @@ const PRELOADED_ROMS = [
             </Card>
 
           </div>
-
           {/* Controls Sidebar */}
           <div className="space-y-4">
             {/* ROM Upload */}
@@ -139,7 +134,6 @@ const PRELOADED_ROMS = [
                 onClick={() => fileInputRef.current?.click()}
                 className="w-full bg-black border-2 border-green-500 text-green-500 font-bold py-2 mb-2 transition-colors duration-200 hover:bg-green-500 hover:text-black"
               >
-                <span className="mr-2">⬆</span>
                 Upload ROM
               </Button>
               {romLoaded && <p className="text-white text-sm truncate mt-2">Loaded: {romName}</p>}
@@ -211,21 +205,6 @@ const PRELOADED_ROMS = [
           </div>
         </div>
       </div>
-
-      <footer className="text-left mt-8 text-gray-500 text-xs">
-        <hr className="border-t border-gray-700 mb-2" />
-        <p>
-          made with <span className="text-red-500">❤️</span>{" "}
-          <a
-            href="https://adityaamehra.me"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
-          >
-            by this guy
-          </a>
-        </p>
-      </footer>
     </main>
   )
 }
